@@ -2,7 +2,7 @@
 authentication-authorization with RBAC (Role-Based Access control )
 
 ## UML
-![](./lab07.png)
+![](./lab08.png)
 
 
 
