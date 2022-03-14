@@ -16,9 +16,9 @@ const basicAuth = async (req, res, next) => {
             const User = await user.findOne({ where: { username: username } });
             const PWD = await bcrypt.compare(password, User.password);
             if (PWD) {
-                req.User = User // req ={user : user} 
-                console.log(req.User);
-                // generating the token
+                req.User = User 
+                console.log("req.Userrrrrrrrr",req.User);
+                
                 let newToken = JWT.sign({username:User.username},SECRET,{expiresIn : 500000});
                 User.token = newToken;
                 res.status(200).json(User);
