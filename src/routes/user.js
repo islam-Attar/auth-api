@@ -25,10 +25,13 @@ routers.post('/signup', async (req, res, next) => {
     try {
         
         let hashedPassword = await bcrypt.hash(password,5)
-        console.log(hashedPassword);
-        console.log(user);
+        
     
-        const newUser = await user.create(req.body);
+        const newUser = await user.create({
+            username: username,
+            password: hashedPassword,
+            role: role    });
+
         res.status(201).json(newUser);
     } catch (error) {
         console.log(error);
